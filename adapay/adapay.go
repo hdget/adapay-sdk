@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	adapayCore "adapay-sdk/adapay-core"
+	adapayCore "github.com/hdget/adapay-sdk/adapay-core"
 )
 
 type Adapay struct {

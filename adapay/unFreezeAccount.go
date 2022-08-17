@@ -1,7 +1,7 @@
 package adapay
 
 import (
-	adapayCore "adapay-sdk/adapay-core"
+	adapayCore "github.com/hdget/adapay-sdk/adapay-core"
 )
 
 type UnFreezeAccountInterface interface {

@@ -3,7 +3,7 @@ package adapay
 import (
 	"strings"
 
-	adapayCore "adapay-sdk/adapay-core"
+	adapayCore "github.com/hdget/adapay-sdk/adapay-core"
 )
 
 type paymentInterface interface {
