@@ -38,7 +38,7 @@ const SETTLE_ACCOUNT_COMMISSIONS_LIST = "/v1/settle_accounts/commissions/list"
 
 const CORP_MEMBERS_CREATE = "/v1/corp_members"
 const CORP_MEMBERS_QUERY = "/v1/corp_members/{member_id}"
-const CORP_MEMBERS_UPDATE = "v1/corp_members/update"
+const CORP_MEMBERS_UPDATE = "/v1/corp_members/update"
 
 const CREATE_CASHS = "/v1/cashs"
 
