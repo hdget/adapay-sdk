@@ -15,7 +15,7 @@ type Drawcash struct {
 }
 
 func (c *Drawcash) Create(reqParam map[string]interface{}, multiMerchConfigId ...string) (map[string]interface{}, *adapayCore.ApiError, error) {
-	reqUrl := BASE_URL + BILL_DOWNLOAD
+	reqUrl := BASE_URL + CREATE_CASHS
 	return adapayCore.RequestAdaPay(reqUrl, adapayCore.POST, reqParam, c.HandleConfig(multiMerchConfigId...))
 }
 
