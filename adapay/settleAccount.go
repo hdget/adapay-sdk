@@ -24,6 +24,10 @@ type settleAccountInterface interface {
 	Commission(reqParam map[string]interface{}, multiMerchConfigId ...string) (map[string]interface{}, *adapayCore.ApiError, error)
 
 	CommissionList(reqParam map[string]interface{}, multiMerchConfigId ...string) (map[string]interface{}, *adapayCore.ApiError, error)
+
+	BalancePay(reqParam map[string]interface{}, multiMerchConfigId ...string) (map[string]interface{}, *adapayCore.ApiError, error)
+
+	BalanceRefund(reqParam map[string]interface{}, multiMerchConfigId ...string) (map[string]interface{}, *adapayCore.ApiError, error)
 }
 
 type SettleAccount struct {
@@ -71,5 +75,15 @@ func (s *SettleAccount) Commission(reqParam map[string]interface{}, multiMerchCo
 
 func (s *SettleAccount) CommissionList(reqParam map[string]interface{}, multiMerchConfigId ...string) (map[string]interface{}, *adapayCore.ApiError, error) {
 	reqUrl := BASE_URL + SETTLE_ACCOUNT_COMMISSIONS_LIST
+	return adapayCore.RequestAdaPay(reqUrl, adapayCore.GET, reqParam, s.HandleConfig(multiMerchConfigId...))
+}
+
+func (s *SettleAccount) BalancePay(reqParam map[string]interface{}, multiMerchConfigId ...string) (map[string]interface{}, *adapayCore.ApiError, error) {
+	reqUrl := BASE_URL + SETTLE_ACCOUNT_BALANCE_PAY
+	return adapayCore.RequestAdaPay(reqUrl, adapayCore.GET, reqParam, s.HandleConfig(multiMerchConfigId...))
+}
+
+func (s *SettleAccount) BalanceRefund(reqParam map[string]interface{}, multiMerchConfigId ...string) (map[string]interface{}, *adapayCore.ApiError, error) {
+	reqUrl := BASE_URL + SETTLE_ACCOUNT_BALANCE_REFUND
 	return adapayCore.RequestAdaPay(reqUrl, adapayCore.GET, reqParam, s.HandleConfig(multiMerchConfigId...))
 }
