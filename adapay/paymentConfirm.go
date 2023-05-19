@@ -23,6 +23,11 @@ func (p *PaymentConfirm) Create(reqParam map[string]interface{}, multiMerchConfi
 	return adapayCore.RequestAdaPay(reqUrl, adapayCore.POST, reqParam, p.HandleConfig(multiMerchConfigId...))
 }
 
+func (p *PaymentConfirm) Reverse(reqParam map[string]interface{}, multiMerchConfigId ...string) (map[string]interface{}, *adapayCore.ApiError, error) {
+	reqUrl := BASE_URL + PAYMENT_CONFIRM_REVERSE
+	return adapayCore.RequestAdaPay(reqUrl, adapayCore.POST, reqParam, p.HandleConfig(multiMerchConfigId...))
+}
+
 func (p *PaymentConfirm) Query(reqParam map[string]interface{}, multiMerchConfigId ...string) (map[string]interface{}, *adapayCore.ApiError, error) {
 	reqUrl := BASE_URL + strings.Replace(PAYMENT_QUERY_CONFIRM, "{payment_confirm_id}", adapayCore.ToString(reqParam["payment_confirm_id"]), -1)
 	return adapayCore.RequestAdaPay(reqUrl, adapayCore.GET, reqParam, p.HandleConfig(multiMerchConfigId...))
